@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện UI Component (Chỉ 14 Thuộc Tính CSS)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #334155;
+            padding: 30px 15px;
+        }
+
+        .main-container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            background-color: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 12px #0000000a;
+            margin: 0 0 24px 0;
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px 0;
+        }
+
+        .page-subtitle {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .section-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 28px 0 12px 0;
+            text-align: left;
+        }
+
+        .alert-box {
+            padding: 16px;
+            border-radius: 10px;
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .alert-success {
+            background-color: #ecfdf5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .alert-warning {
+            background-color: #fffbeb;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .alert-danger {
+            background-color: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .alert-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+
+        .stat-card {
+            background-color: #ffffff;
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px #0000000d;
+            margin: 0 0 16px 0;
+        }
+
+        .stat-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            margin: 0 0 8px 0;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 8px 0;
+        }
+
+        .stat-badge {
+            font-size: 12px;
+            font-weight: 600;
+            color: #047857;
+            background-color: #d1fae5;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid #a7f3d0;
+        }
+
+        .blog-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 16px #0000000e;
+            margin: 0 0 20px 0;
+        }
+
+        .blog-tag {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .blog-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 12px 0 8px 0;
+        }
+
+        .blog-desc {
+            font-size: 14px;
+            color: #475569;
+            font-weight: 400;
+            margin: 0 0 16px 0;
+        }
+
+        .blog-meta {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .profile-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 28px 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 20px #0000000f;
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            border-radius: 40px;
+            border: 3px solid #2563eb;
+            margin: 0 0 12px 0;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+        }
+
+        .profile-role {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2563eb;
+            margin: 0 0 12px 0;
+        }
+
+        .profile-bio {
+            font-size: 13px;
+            color: #64748b;
+            margin: 0 0 20px 0;
+        }
+
+        .pricing-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 28px 20px;
+            border: 2px solid #2563eb;
+            box-shadow: 0 10px 25px #00000012;
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        .pricing-plan {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2563eb;
+            margin: 0 0 10px 0;
+        }
+
+        .pricing-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 4px 0;
+        }
+
+        .pricing-period {
+            font-size: 13px;
+            color: #94a3b8;
+            margin: 0 0 20px 0;
+        }
+
+        .pricing-feature {
+            background-color: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 13px;
+            color: #334155;
+            margin: 0 0 8px 0;
+            text-align: center;
+        }
+
+        .btn-group {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px #0000000d;
+            text-align: center;
+            margin: 0 0 24px 0;
+        }
+
+        .btn {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            margin: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: 1px solid #2563eb;
+            box-shadow: 0 2px 4px #2563eb40;
+        }
+
+        .btn-secondary {
+            background-color: #64748b;
+            color: #ffffff;
+            border: 1px solid #64748b;
+        }
+
+        .btn-success {
+            background-color: #059669;
+            color: #ffffff;
+            border: 1px solid #059669;
+        }
+
+        .btn-outline {
+            background-color: #ffffff;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-block {
+            width: 100%;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px;
+            background-color: #0f172a;
+            color: #ffffff;
+            border: 1px solid #0f172a;
+            border-radius: 10px;
+            margin: 12px 0 0 0;
+        }
+
+        .prop-box {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #cbd5e1;
+            margin: 30px 0 10px 0;
+            text-align: center;
+        }
+
+        .prop-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #334155;
+            margin: 0 0 10px 0;
+        }
+
+        .prop-item {
+            font-size: 12px;
+            color: #1e293b;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            padding: 4px 8px;
+            margin: 3px;
+            border: 1px solid #cbd5e1;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <!-- Header -->
+        <div class="page-header">
+            <div class="page-title">Thư Viện UI Component Mẫu</div>
+            <div class="page-subtitle"> Một số mẫu đẹp bạn có thể tái sử dụng</div>
+        </div>
+
+        <!-- 1. ALERT PANELS -->
+        <div class="section-label">1. Alert Panel (Thông báo)</div>
+        
+        <div class="alert-box alert-success">
+            <div class="alert-title">Thành công!</div>
+            Dữ liệu của bạn đã được lưu thành công vào hệ thống.
+        </div>
+
+        <div class="alert-box alert-warning">
+            <div class="alert-title">Cảnh báo!</div>
+            Tài khoản của bạn sắp hết hạn dung lượng lưu trữ.
+        </div>
+
+        <div class="alert-box alert-danger">
+            <div class="alert-title">Lỗi kết nối!</div>
+            Không thể kết nối tới máy chủ. Vui lòng thử lại sau.
+        </div>
+
+        <!-- 2. STAT CARD -->
+        <div class="section-label">2. Stat Card (Thống kê)</div>
+        <div class="stat-card">
+            <div class="stat-title">TỔNG DOANH THU THÁNG</div>
+            <div class="stat-number">128.450.000 ₫</div>
+            <span class="stat-badge">+15.2% so với tháng trước</span>
+        </div>
+
+        <!-- 3. BLOG CARD -->
+        <div class="section-label">3. Blog Card (Bài viết)</div>
+        <div class="blog-card">
+            <span class="blog-tag">LẬP TRÌNH WEB</span>
+            <div class="blog-title">Xây Dựng Giao Diện Đẹp Không Cần Framework</div>
+            <div class="blog-desc">Khám phá cách tận dụng tối đa các thuộc tính CSS cơ bản để thiết kế giao diện hiện đại, tối ưu hiệu năng và dễ bảo trì.</div>
+            <div class="blog-meta">Tác giả: Nguyễn Văn A • 25 Tháng 10, 2023</div>
+        </div>
+
+        <!-- 4. PROFILE CARD -->
+        <div class="section-label">4. Profile Card (Cá nhân)</div>
+        <div class="profile-card">
+            <img class="profile-avatar" src="https://placehold.co/100x100/2563eb/ffffff?text=User" alt="Avatar">
+            <div class="profile-name">Trần Thị Mai</div>
+            <div class="profile-role">Senior UI/UX Designer</div>
+            <div class="profile-bio">Đam mê sáng tạo những trải nghiệm người dùng tinh tế, đơn giản và hiệu quả.</div>
+            <button class="btn btn-primary">Theo dõi</button>
+            <button class="btn btn-outline">Nhắn tin</button>
+        </div>
+
+        <!-- 5. PRICING CARD -->
+        <div class="section-label">5. Pricing Card (Bảng giá)</div>
+        <div class="pricing-card">
+            <div class="pricing-plan">GÓI CHUYÊN NGHIỆP</div>
+            <div class="pricing-amount">299.000 ₫</div>
+            <div class="pricing-period">mỗi tháng / thanh toán hàng năm</div>
+            
+            <div class="pricing-feature">✓ Truy cập không giới hạn tính năng</div>
+            <div class="pricing-feature">✓ Hỗ trợ kỹ thuật 24/7</div>
+            <div class="pricing-feature">✓ Dung lượng lưu trữ 100GB</div>
+            <div class="pricing-feature">✓ Tự động sao lưu hàng ngày</div>
+
+            <button class="btn btn-block">Đăng Ký Ngay</button>
+        </div>
+
+        <!-- 6. BUTTONS -->
+        <div class="section-label">6. Button Gallery (Nút bấm)</div>
+        <div class="btn-group">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-outline">Outline</button>
+            <button class="btn btn-block">Full Width Button</button>
+        </div>
+
+        <!-- LIST OF ALLOWED CSS PROPERTIES USED -->
+        <div class="section-label">7. Tags</div>
+        <div class="prop-box">
+            <span class="prop-item">color</span>
+            <span class="prop-item">background-color</span>
+            <span class="prop-item">font-family</span>
+            <span class="prop-item">font-size</span>
+            <span class="prop-item">font-weight</span>
+            <span class="prop-item">text-align</span>
+            <span class="prop-item">width</span><br/><br/>
+            <span class="prop-item">max-width</span>
+            <span class="prop-item">margin</span>
+            <span class="prop-item">padding</span>
+            <span class="prop-item">border</span>
+            <span class="prop-item">border-radius</span>
+            <span class="prop-item">box-shadow</span>
+            <span class="prop-item">box-sizing</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
